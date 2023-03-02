@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} Mes ingredients{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="display-4">Mes ingredients</h1>
+        <div class="table-responsive">
+            <table class="table table-hover table-borderless table-primary align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prix</th>
+                        <th>Date d'ajout</th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        {% for ingredient in ingredients %}
+                            <tr>
+                                <td>{{ ingredient.name }}</td>
+                                <td>{{ ingredient.price }} Ariary</td>
+                                <td>{{ ingredient.createdAt }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+            </table>
+        </div>        
+    </div>
+{% endblock %}
