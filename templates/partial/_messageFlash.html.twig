@@ -1,0 +1,30 @@
+{% for message in app.flashes('success') %}
+    <div class="container">
+        <div class="text-center alert alert-success alert-dismissible fade show mt-5">
+            <strong>
+                {{ message }}
+                <span class="btn btn-close close" data-bs-dismiss="alert"></span>
+            </strong>
+        </div>
+    </div>
+{% endfor %}
+{% for message in app.flashes('warning') %}
+    <div class="container">
+        <div class="text-center alert alert-warning alert-dismissible fade show mt-5">
+            <strong>
+                {{ message }}
+                <span class="btn btn-close close" data-bs-dismiss="alert"></span>
+            </strong>
+        </div>
+    </div>
+{% endfor %}
+{% for message in app.flashes('delete') %}
+    <div class="container">
+        <div class="text-center alert alert-danger alert-dismissible fade show mt-5">
+            <strong>
+                {{ message }}
+                <span class="btn btn-close close" data-bs-dismiss="alert"></span>
+            </strong>
+        </div>
+    </div>
+{% endfor %}

@@ -4,25 +4,27 @@ namespace App\Entity;
 
 use App\Repository\IngredientRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: IngredientRepository::class)]
+#[UniqueEntity('name', message: 'Cet ingredient existe deja')]
 class Ingredient
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-
+    
     #[ORM\Column(length: 50)]
     #[Assert\NotBlank()]
-    #[Assert\Length(min: 2, max: 50)]
+    #[Assert\Length(min: 2, max: 50, minMessage: 'Ce champ doit contenir au moins {{ limit }} caracteres', maxMessage: 'Ce champ doit contenir tout au plus {{ limit }} caracteres')]
     private ?string $name = null;
 
     #[ORM\Column]
     #[Assert\NotNull()]
-    #[Assert\Positive()]
-    #[Assert\LessThan(200)]
+    #[Assert\Positive(message: 'Le prix doit toujours etre positif.')]
+    #[Assert\Range(min: 100, max: 60000, notInRangeMessage: 'Le prix doit etre entre {{ min }} ariary et {{ max }} ariary.')]
     private ?float $price = null;
 
     #[ORM\Column]

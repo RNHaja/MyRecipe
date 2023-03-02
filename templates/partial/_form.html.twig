@@ -1,0 +1,6 @@
+{{ form_label(form.name, 'Nom') }}
+{{ form_widget(form.name) }}
+{{ form_errors(form.name, {'attr': {'class': 'text-primary'}}) }}
+{{ form_label(form.price, 'Prix en Ariary', {'label_attr': {'class': 'mt-3'}}) }}
+{{ form_widget(form.price) }}
+{{ form_errors(form.price, {'attr': {'class': 'text-primary'}}) }}

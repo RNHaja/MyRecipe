@@ -8,6 +8,7 @@
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
             <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('fonts/css/font-awesome.min.css') }}">
         {% endblock %}
 
         {% block javascripts %}
@@ -20,5 +21,6 @@
             {% include 'partial/_header.html.twig' %}
         </header>
         {% block body %}{% endblock %}
+        <script src="{{ asset('js/confirmation.script.js') }}"></script>
     </body>
 </html>

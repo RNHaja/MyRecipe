@@ -37,6 +37,7 @@ class IngredientRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+        
     }
 
 //    /**
